@@ -34,17 +34,9 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-
-
-
 interface MarsApiService{
-
-
         @GET("realestate")
-        fun getProperties(): Call<List<MarsProperty>>
-
-
-
+       suspend fun getProperties(): List<MarsProperty>
 }
 
 object MarsApi{
