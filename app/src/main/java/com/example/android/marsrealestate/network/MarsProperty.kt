@@ -17,16 +17,20 @@
 
 package com.example.android.marsrealestate.network
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class MarsProperty(
     val id: String,
     @Json(name = "img_src") val imgSrcUrl : String,
     val type : String,
     val price : Double
-){
+): Parcelable {
 
 }
 
