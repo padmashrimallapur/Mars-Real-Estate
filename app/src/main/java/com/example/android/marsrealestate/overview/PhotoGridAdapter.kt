@@ -41,7 +41,6 @@ class PhotoGridAdapter(val clickListener: OnClickListener)  : ListAdapter<MarsPr
         }
     }
 
-
     class MarsPropertyViewHolder(private var binding: GridViewItemBinding1) : RecyclerView.ViewHolder(binding.root){
         fun bind(marsProperty: MarsProperty){
             binding.property = marsProperty
@@ -58,15 +57,11 @@ class PhotoGridAdapter(val clickListener: OnClickListener)  : ListAdapter<MarsPr
         override fun areContentsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
             return oldItem.id == newItem.id
         }
-
     }
 
     class OnClickListener(val clickListener: (marsProperty : MarsProperty) -> Unit){
         fun onClick(marsProperty: MarsProperty) = clickListener(marsProperty)
     }
-
-
-
 }
 
 

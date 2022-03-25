@@ -26,6 +26,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.android.marsrealestate.R
 import com.example.android.marsrealestate.databinding.FragmentOverviewBinding
 import com.example.android.marsrealestate.databinding.GridViewItemBinding
+import com.example.android.marsrealestate.network.MarsApiFilter
+import com.example.android.marsrealestate.network.MarsApiService
 
 /**
  * This fragment shows the the status of the Mars real-estate web services transaction.
@@ -65,6 +67,18 @@ class OverviewFragment : Fragment() {
         })
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        viewModel.updateFilter(
+            when(item.itemId){
+                R.id.show_rent_menu -> MarsApiFilter.SHOW_RENT
+                R.id.show_buy_menu -> MarsApiFilter.SHOW_BUY
+                else -> MarsApiFilter.SHOW_ALL
+
+            }
+        )
+        return true
     }
 
     /**
